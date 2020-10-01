@@ -1,5 +1,5 @@
 import { Input, Row, Col } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
+import { SearchOutlined, PlayCircleOutlined } from "@ant-design/icons";
 import { OmitProps } from "antd/lib/transfer/ListBody";
 import AwesomeSlider from "react-awesome-slider";
 const { Search } = Input;
@@ -20,10 +20,18 @@ const Head = (props) => {
           </Col>
         </Row>
       </header>
-      <div className="slide">
+      <div className="cover">
         <img src="images/Mask.png" className="img"></img>
         <span className="overlay">
-          <div className="container"></div>
+          <div className="container">
+            <div className="info">
+            <h1>John Wick:</h1>
+            <div>Drama - Action - War - Fantasy</div>
+            <p>pop</p>
+            <PlayCircleOutlined /> <small>Show trailer</small>
+            </div>
+          
+          </div>
         </span>
       </div>
     </>

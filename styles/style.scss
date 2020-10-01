@@ -13,10 +13,18 @@ body{
         align-items: center;
         
     }
- 
+    .title{align-content: center;;
+        justify-content: space-between;
+        margin: auto;
+    }
+    .title h1{margin-top: 30px;}
+ .title p{
+    color: white;
+    font-size: 45px;
+    text-align: right; }
  .ant-input-affix-wrapper , .ant-input{
     background-color:#242f3b !important ;
     border-color: #242f3b;
  }
-
+ 
 
