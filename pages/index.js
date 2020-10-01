@@ -3,6 +3,7 @@ import { Col, Row } from "antd";
 import { Card } from "antd";
 import Head from "../com/header.js";
 import Top from "../com/top.js";
+import Carousel from 'react-bootstrap/Carousel'
 const { Meta } = Card;
 const Home = () => {
   const [top, setTop] = useState([]);
@@ -15,7 +16,7 @@ const Home = () => {
       .then((resp) => resp.json())
       .then((result) => {
         setTop(result.results);
-        //console.log(result.results.backdrop_path);
+
       }),
       fetch(
         "https://api.themoviedb.org/3/movie/popular?api_key=8b412fb81a88421b5ad16e24454ddcd9"
@@ -23,7 +24,7 @@ const Home = () => {
         .then((resp) => resp.json())
         .then((result) => {
           setPop(result.results);
-          //console.log(result.results.backdrop_path);
+      
         }),
         fetch(
           "https://api.themoviedb.org/3/movie/upcoming?api_key=8b412fb81a88421b5ad16e24454ddcd9"
@@ -31,15 +32,37 @@ const Home = () => {
           .then((resp) => resp.json())
           .then((result) => {
             setUp(result.results);
-            //console.log(result.results.backdrop_path);
+           
           })
 ]
     
     );
   }, []);
   return (
+    <>
     <body>
-      <Head />
+  <Head/>
+        <Carousel>
+      
+              {top.map((item, index) => (
+                <Carousel.Item key={index} >
+               <img
+                 className="d-block w-100"
+                 src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
+                 alt="First slide"
+               />
+               <div className="overlay"></div>
+               <Carousel.Caption className="cap">
+                 <h3>{item.title}</h3>
+               <p>{item.popularity}</p>
+               </Carousel.Caption>
+               </Carousel.Item>
+                   ))}
+          
+            
+    </Carousel>
+  
+  
       <div className="container ">
         <Row className="title">
           <Col span={22}>
@@ -86,8 +109,8 @@ const Home = () => {
             <Top key={index} item={item} />
           ))}
         </div>
-  
     </body>
+    </>
   );
 };
 export default Home;
